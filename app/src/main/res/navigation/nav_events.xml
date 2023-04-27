@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_events"
+    app:startDestination="@id/eventsFragment">
+
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="ru.divarteam.atoll.ui.events.EventsFragment"
+        android:label="EventsFragment"
+        tools:layout="@layout/fragment_events">
+        <action
+            android:id="@+id/action_eventsFragment_to_eventFragment"
+            app:destination="@id/eventFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="ru.divarteam.atoll.ui.event.EventFragment"
+        android:label="EventFragment"
+        tools:layout="@layout/fragment_event">
+        <argument
+            android:name="eventId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+</navigation>

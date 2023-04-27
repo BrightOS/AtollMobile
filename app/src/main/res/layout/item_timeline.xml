@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="15dp">
+
+    <TextView
+        android:id="@+id/timeline_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="27 мая в 14:00"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/circle"
+        app:layout_constraintBottom_toBottomOf="@id/circle"
+        app:layout_constraintTop_toTopOf="@id/circle" />
+
+    <TextView
+        android:id="@+id/timeline_text"
+        android:layout_width="0dp"
+        android:layout_marginVertical="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="@font/inter_regular"
+        android:text="Торжественное открытие хакатона. Озвучивание информации по кейсам."
+        app:layout_constraintStart_toEndOf="@id/circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/circle"
+        app:layout_constraintTop_toTopOf="@id/circle" />
+
+    <View
+        android:id="@+id/top_line"
+        android:layout_width="3dp"
+        android:layout_height="0dp"
+        android:background="@color/grey_300"
+        app:layout_constraintBottom_toTopOf="@id/circle"
+        app:layout_constraintEnd_toEndOf="@id/circle"
+        app:layout_constraintStart_toStartOf="@id/circle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/circle"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="110dp"
+        android:background="@drawable/d_circle"
+        android:backgroundTint="@color/blue_900"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="3dp"
+        android:layout_height="0dp"
+        android:background="@color/grey_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/circle"
+        app:layout_constraintStart_toStartOf="@id/circle"
+        app:layout_constraintTop_toBottomOf="@id/circle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

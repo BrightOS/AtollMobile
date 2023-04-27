@@ -66,7 +66,6 @@
 
     <style name="Theme.Atoll.SplashTheme" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/splashColor</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/animated_icon</item>
         <item name="windowSplashScreenAnimationDuration">500</item>
         <item name="postSplashScreenTheme">@style/Theme.Atoll</item>
     </style>

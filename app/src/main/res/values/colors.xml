@@ -9,6 +9,19 @@
     <color name="widget_background_color">#F6FCFF</color>
     <color name="widget_icon_tint">#8F1EFF</color>
 
+    <color name="rosmol_purple">#8c64d8</color>
+    <color name="rosmol_light_purple">#F3EFFB</color>
+    <color name="rosmol_green">#daef14</color>
+
+    <color name="primary_green">#175521</color>
+    <color name="surface_green">#D4E8CF</color>
+
+    <color name="primary_red">#804758</color>
+    <color name="surface_red">#fcdde3</color>
+
+    <color name="primary_blue">#61affe</color>
+    <color name="surface_blue">#eff7ff</color>
+
     <color name="md_theme_light_primary">#6750A4</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_primaryContainer">#EADDFF</color>
