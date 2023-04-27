@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="splashColor">#171626</color>
+    <color name="holder">#6f6f79</color>
+    <color name="splash_icon_background">#403f44</color>
+
+    <!-- Widgets -->
+    <color name="widget_background_color">#6B5858</color>
+    <color name="widget_icon_tint">#D6A2FF</color>
+</resources>
