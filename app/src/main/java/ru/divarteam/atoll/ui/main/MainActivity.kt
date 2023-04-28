@@ -9,8 +9,10 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import ru.divarteam.atoll.R
 import ru.divarteam.atoll.data.repository.PreferenceRepository
@@ -55,11 +57,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        navController = (supportFragmentManager.findFragmentById(
+        val navHostFragment = supportFragmentManager.findFragmentById(
             R.id.main_container
-        ) as NavHostFragment).navController
+        ) as NavHostFragment
+        navController = navHostFragment.navController
 
-        binding.bottomNavigation.setupWithNavController(navController)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigationView.setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp() = navController.popBackStack()

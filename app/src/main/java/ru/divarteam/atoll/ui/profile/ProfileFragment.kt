@@ -49,6 +49,12 @@ class ProfileFragment : Fragment() {
                 binding.telegram.editText?.setText(it.telegramUsername)
                 binding.vk.editText?.setText(it.vkId)
                 binding.description.editText?.setText(it.description)
+                binding.roleTv.setText(when (it.roles!![0]) {
+                    "admin" -> "Администратор"
+                    "representative" -> "Представитель"
+                    "partner" -> "Партнёр"
+                    else -> "Спортсмен"
+                })
 
                 binding.loading.root.visibility = View.GONE
             }

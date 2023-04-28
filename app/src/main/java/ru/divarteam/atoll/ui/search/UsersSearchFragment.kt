@@ -48,7 +48,7 @@ class UsersSearchFragment : Fragment() {
                 if (code == 200 && response != null) {
                     Toast.makeText(
                         context,
-                        "${userResponse.fullname} был приглашён в команду",
+                        "Спортсмен был приглашён в команду",
                         Toast.LENGTH_SHORT
                     ).show()
                     findNavController().popBackStack()

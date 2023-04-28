@@ -135,6 +135,7 @@ class EventFragment : Fragment() {
                         id(currentEpoxyIndex++)
                         teamResponse(myTeam)
                         eventId(it.id!!)
+                        canInvite(myTeam.users?.first { it.intId == preferenceRepository.userId }?.isCaptain ?: false)
                         onInviteClickListener(onInviteClickListener)
                     }
 

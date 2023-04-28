@@ -22,10 +22,14 @@ abstract class EventMyTeamModel : EpoxyModelWithHolder<EventMyTeamModel.Holder>(
     var eventId: Int = 0
 
     @EpoxyAttribute
+    var canInvite: Boolean = false
+
+    @EpoxyAttribute
     lateinit var onInviteClickListener: OnInviteClickListener
 
     override fun bind(holder: Holder) {
         holder.teamName.setText(teamResponse.title)
+        holder.invite.visibility = if (canInvite) View.VISIBLE else View.GONE
         holder.invite.setOnClickListener {
             onInviteClickListener.onInviteClick(eventId, teamResponse.teamId ?: 0)
         }

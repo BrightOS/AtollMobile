@@ -30,7 +30,16 @@
                 android:layout_marginStart="15dp"
                 app:cardBackgroundColor="@color/surface_green"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/role_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_semibold"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="3dp" />
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/fullname"
@@ -154,6 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="5dp"
+                android:visibility="gone"
                 app:boxBackgroundColor="?colorOnSurfaceInverse"
                 app:boxCornerRadiusBottomEnd="20dp"
                 app:boxCornerRadiusBottomStart="20dp"
