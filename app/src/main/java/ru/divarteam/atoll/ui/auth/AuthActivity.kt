@@ -8,8 +8,10 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.disposables.CompositeDisposable
+import ru.divarteam.atoll.R
 import ru.divarteam.atoll.data.repository.PreferenceRepository
 import ru.divarteam.atoll.databinding.ActivityAuthBinding
 import ru.divarteam.atoll.ui.main.MainActivity
@@ -49,6 +51,10 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        Glide.with(this)
+            .load(R.drawable.atoll)
+            .into(binding.atollLogo)
 
         binding.email.editText?.doAfterTextChanged {
             if (it.isNullOrBlank() || wereAttemptToSendCode.not())
