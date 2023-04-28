@@ -4,7 +4,7 @@
     android:id="@+id/nav_main"
     app:startDestination="@id/nav_events">
 
-
     <include app:graph="@navigation/nav_events" />
+    <include app:graph="@navigation/nav_invites" />
     <include app:graph="@navigation/nav_profile" />
 </navigation>

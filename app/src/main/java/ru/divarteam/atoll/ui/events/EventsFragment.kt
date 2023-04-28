@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import ru.divarteam.atoll.data.repository.PreferenceRepository
 import ru.divarteam.atoll.databinding.FragmentEventsBinding
@@ -32,7 +33,11 @@ class EventsFragment : Fragment() {
     private lateinit var binding: FragmentEventsBinding
     private val onEventClickListener = object : OnEventClickListener {
         override fun onEventClick(eventId: Int) {
-            Log.e("EventClicked", "Trying navigate to event with id $eventId")
+            findNavController().navigate(
+                EventsFragmentDirections.actionEventsFragmentToEventFragment().apply {
+                    this.eventId = eventId
+                }
+            )
         }
     }
 
@@ -57,6 +62,8 @@ class EventsFragment : Fragment() {
                         id(it.id)
                         title(it.title)
                         subtitle(it.description)
+                        eventId(it.id ?: 0)
+                        onEventClickListener(onEventClickListener)
                         dateTime(
                             "${it.startDateTime?.fromDefaultFormatToRuFormatString()} - " +
                                     "${it.endDateTime?.fromDefaultFormatToRuFormatString()}"
@@ -70,6 +77,7 @@ class EventsFragment : Fragment() {
     }
 
     fun loadEvents() {
+        showLoading()
         retrofitService.getAllEvents(preferenceRepository.userToken) { response, code ->
             if (code == 200 && response != null) {
                 _eventsList.postValue(response)
@@ -79,7 +87,18 @@ class EventsFragment : Fragment() {
                 activity?.finish()
             } else
                 somethingWentWrong()
+
+            hideLoading()
         }
+    }
+
+
+    private fun showLoading() {
+        binding.loading.root.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        binding.loading.root.visibility = View.GONE
     }
 
     private fun somethingWentWrong() {

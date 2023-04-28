@@ -5,6 +5,7 @@ import android.widget.TextView
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
+import com.google.android.material.card.MaterialCardView
 import ru.divarteam.atoll.R
 import ru.divarteam.atoll.data.model.EventPickerModel
 import ru.divarteam.atoll.ui.events.OnEventClickListener
@@ -36,9 +37,14 @@ abstract class EventPickerEpoxyModel : EpoxyModelWithHolder<EventPickerEpoxyMode
         holder.more.setOnClickListener {
             onEventClickListener.onEventClick(eventId)
         }
+
+        holder.root.setOnClickListener {
+            onEventClickListener.onEventClick(eventId)
+        }
     }
 
     inner class Holder : KotlinHolder() {
+        val root by bind<MaterialCardView>(R.id.root)
         val dateTime by bind<TextView>(R.id.event_datetime)
         val title by bind<TextView>(R.id.event_title)
         val subtitle by bind<TextView>(R.id.event_subtitle)

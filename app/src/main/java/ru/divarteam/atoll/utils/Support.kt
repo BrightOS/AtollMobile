@@ -8,18 +8,22 @@ import java.util.Locale
 
 @SuppressLint("SimpleDateFormat")
 fun String.fromDefaultFormatToRuFormatString(): String =
-    SimpleDateFormat(
-        "yyyy-MM-dd'T'HH:mm:ss.SSS"
-    ).parse(this)!!.let { originalDate ->
+    fromDefaultStringToDate()!!.let { originalDate ->
         SimpleDateFormat(
             Date().let {
                 if (it.year == originalDate.year)
-                    "dd MMMM"
+                    "dd MMMM HH:mm"
                 else
-                    "dd MMMM yyyy года"
+                    "dd MMMM yyyy года HH:mm"
             },
             Locale("ru")
         ).format(
             originalDate
         )
     }
+
+@SuppressLint("SimpleDateFormat")
+fun String.fromDefaultStringToDate(): Date? =
+    SimpleDateFormat(
+        "yyyy-MM-dd'T'HH:mm:ss.SSS"
+    ).parse(this)

@@ -14,5 +14,6 @@ data class EventResponse(
     @SerializedName("start_dt") val startDateTime: String?,
     @SerializedName("end_dt") val endDateTime: String?,
     @SerializedName("timeline") val timeline: List<TimelineResponse>?,
-    @SerializedName("ratings") val rating: List<RatingResponse>?
+    @SerializedName("ratings") val rating: List<RatingResponse>?,
+    @SerializedName("teams") val teams: List<TeamResponse>?
 )

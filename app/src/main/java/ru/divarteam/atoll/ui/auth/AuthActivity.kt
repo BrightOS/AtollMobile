@@ -150,6 +150,7 @@ class AuthActivity : AppCompatActivity() {
                     if (code == 200 && response != null) {
                         preferenceRepository.userToken = response.token.toString()
                         preferenceRepository.userId = response.intId ?: -1
+                        preferenceRepository.userRole = response.roles?.get(0) ?: ""
                         println("new token: ${response.token}")
 
                         Toast.makeText(

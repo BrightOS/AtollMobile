@@ -29,6 +29,14 @@ class PreferenceRepository(private val sharedPreferences: SharedPreferences) {
                 .apply()
         }
 
+    // User token repository
+    var userRole: String
+        get() = sharedPreferences.getString(PREFERENCE_USER_ROLE, "").toString()
+        set(value) {
+            sharedPreferences.edit().putString(PREFERENCE_USER_ROLE, value)
+                .apply()
+        }
+
     // User ID repository
     var userId: Int
         get() = sharedPreferences.getInt(PREFERENCE_USER_ID, -1)
@@ -39,6 +47,7 @@ class PreferenceRepository(private val sharedPreferences: SharedPreferences) {
 
     companion object {
         private const val PREFERENCE_USER_TOKEN = "divar_voronezh_preference_user_token"
+        private const val PREFERENCE_USER_ROLE = "divar_voronezh_preference_user_role"
         private const val PREFERENCE_USER_ID = "divar_voronezh_preference_user_id"
         private const val PREFERENCE_NIGHT_MODE = "divar_voronezh_preference_night_mode"
         private const val PREFERENCE_NIGHT_MODE_DEF_VAL = AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM

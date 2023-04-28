@@ -2,13 +2,13 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ru.divarteam.atoll.widget.FollowyAppBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
+        app:startIcon="@drawable/ic_event"
         app:titleText="События"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,5 +22,9 @@
             android:layout_height="match_parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/layout_loading" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

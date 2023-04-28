@@ -13,7 +13,9 @@ data class UserResponse(
     @SerializedName("birth_dt") val birthDate: String?,
     @SerializedName("tg_username") val telegramUsername: String?,
     @SerializedName("tg_id") val telegramId: String?,
+    @SerializedName("vk_id") val vkId: String?,
     @SerializedName("roles") val roles: List<String>?,
     @SerializedName("tokens") val tokens: List<String>?,
-    @SerializedName("current_token") val token: String?
+    @SerializedName("current_token") val token: String?,
+    @SerializedName("is_captain") val isCaptain: Boolean
 )

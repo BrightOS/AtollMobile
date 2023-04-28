@@ -42,14 +42,15 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         currentUser.observe(viewLifecycleOwner) {
             if (it == null)
-                binding.loading.visibility = View.VISIBLE
+                binding.loading.root.visibility = View.VISIBLE
             else {
                 binding.fullname.editText?.setText(it.fullname)
                 binding.birthDate.editText?.setText(it.birthDate)
                 binding.telegram.editText?.setText(it.telegramUsername)
+                binding.vk.editText?.setText(it.vkId)
                 binding.description.editText?.setText(it.description)
 
-                binding.loading.visibility = View.GONE
+                binding.loading.root.visibility = View.GONE
             }
         }
 
@@ -61,14 +62,15 @@ class ProfileFragment : Fragment() {
     }
 
     fun updateUser() {
-        binding.loading.visibility = View.VISIBLE
+        binding.loading.root.visibility = View.VISIBLE
 
         retrofitService.updateMe(
             token = preferenceRepository.userToken,
             fullname = binding.fullname.editText?.text.toString(),
             description = binding.description.editText?.text.toString(),
             birthDate = null,
-            telegramUsername = binding.telegram.editText?.text.toString()
+            telegramUsername = binding.telegram.editText?.text.toString(),
+            vk = binding.vk.editText?.text.toString(),
         ) { response, code ->
             if (code == 200 && response != null) {
                 _currentUser.postValue(response)
@@ -79,12 +81,12 @@ class ProfileFragment : Fragment() {
                 ).show()
             } else
                 somethingWentWrong()
-            binding.loading.visibility = View.GONE
+            binding.loading.root.visibility = View.GONE
         }
     }
 
     fun loadUser(userId: Int = preferenceRepository.userId) {
-        binding.loading.visibility = View.VISIBLE
+        binding.loading.root.visibility = View.VISIBLE
         if (userId == preferenceRepository.userId)
             retrofitService.getMe(preferenceRepository.userToken) { response, code ->
                 if (code == 200 && response != null)

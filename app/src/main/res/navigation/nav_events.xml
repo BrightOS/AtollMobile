@@ -22,7 +22,37 @@
         tools:layout="@layout/fragment_event">
         <argument
             android:name="eventId"
-            app:argType="integer"
-            android:defaultValue="-1" />
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_eventFragment_to_sendFeedbackBottomSheet"
+            app:destination="@id/sendFeedbackBottomSheet" />
+        <action
+            android:id="@+id/action_eventFragment_to_usersSearchFragment"
+            app:destination="@id/usersSearchFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/sendFeedbackBottomSheet"
+        android:name="ru.divarteam.atoll.ui.event.SendFeedbackBottomSheet"
+        android:label="SendFeedbackBottomSheet"
+        tools:layout="@layout/bottom_sheet_feedback">
+        <argument
+            android:name="eventId"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </dialog>
+    <fragment
+        android:id="@+id/usersSearchFragment"
+        android:name="ru.divarteam.atoll.ui.search.UsersSearchFragment"
+        android:label="UsersSearchFragment"
+        tools:layout="@layout/fragment_users_search">
+        <argument
+            android:name="eventId"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="teamId"
+            android:defaultValue="-1"
+            app:argType="integer" />
     </fragment>
 </navigation>

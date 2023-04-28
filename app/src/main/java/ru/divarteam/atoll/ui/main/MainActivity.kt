@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             window.decorView.systemUiVisibility =
@@ -56,10 +55,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.bottomNavigation.setupWithNavController(
-            (supportFragmentManager.findFragmentById(
-                R.id.main_container
-            ) as NavHostFragment).navController
-        )
+        navController = (supportFragmentManager.findFragmentById(
+            R.id.main_container
+        ) as NavHostFragment).navController
+
+        binding.bottomNavigation.setupWithNavController(navController)
     }
+
+    override fun onSupportNavigateUp() = navController.popBackStack()
 }

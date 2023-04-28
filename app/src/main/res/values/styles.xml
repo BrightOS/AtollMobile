@@ -6,6 +6,11 @@
     <attr name="colorBad" format="color" />
     <attr name="colorGood" format="color" />
 
+    <style name="Theme.Atoll.TextAppearace">
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <declare-styleable name="FollowyButton">
         <attr name="text" format="string" />
         <attr name="activeColor" format="boolean" />

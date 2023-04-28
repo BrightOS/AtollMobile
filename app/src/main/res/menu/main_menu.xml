@@ -7,6 +7,11 @@
         android:title="События"/>
 
     <item
+        android:id="@+id/nav_invites"
+        android:icon="@drawable/ic_notifications"
+        android:title="Приглашения"/>
+
+    <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_face_6"
         android:title="Профиль"/>

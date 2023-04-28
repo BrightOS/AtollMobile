@@ -8,5 +8,6 @@ data class UpdateMeRequest(
     @SerializedName("fullname") val fullname: String?,
     @SerializedName("birth_dt") val birthDate: String?,
     @SerializedName("tg_username") val telegramUsername: String?,
-    @SerializedName("description") val description: String?
+    @SerializedName("description") val description: String?,
+    @SerializedName("vk_id") val vk: String?
 )
